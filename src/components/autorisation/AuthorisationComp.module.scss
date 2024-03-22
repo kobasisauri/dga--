@@ -1,0 +1,42 @@
+.container {
+  margin-top: 160px;
+  gap: 24px;
+
+  .headline {
+    font-size: 16;
+    font-weight: 500;
+  }
+
+  .wrapper {
+    border: 1px solid #d1e0ff;
+    padding: 24px;
+    border-radius: 16px;
+    gap: 12px;
+    max-width: 403px;
+    text-align: center;
+    margin: 0 8px;
+  }
+
+  h6 {
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  p {
+    color: #757575;
+    font-size: 14px;
+    line-height: 19px;
+  }
+  .button {
+    align-self: flex-end;
+    height: 48px;
+    width: 109px;
+    background-color: #1f5edd;
+  }
+}
+
+@media only screen and (max-width: 660px) {
+  .container {
+    margin-top: 60px;
+  }
+}

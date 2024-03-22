@@ -1,0 +1,23 @@
+.header {
+  padding: 24px;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .items {
+    gap: 28px;
+  }
+}
+@media only screen and (max-width: 660px) {
+  .header {
+    justify-content: center;
+  }
+
+  .items {
+    position: absolute;
+    bottom: 35px;
+  }
+}
