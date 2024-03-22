@@ -25,7 +25,10 @@
     "next-env.d.ts",
     "*/.ts",
     "*/.tsx",
-    "postcss.config.js"
+    "*/.svg",
+    "postcss.config.js",
+    "src/components",
+    "src/types/index.d.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

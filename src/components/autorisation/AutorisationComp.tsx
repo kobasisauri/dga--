@@ -27,6 +27,7 @@ const AutorisationComp = () => {
       });
   };
 
+  <div style={{ display: "flex" }}></div>;
   return (
     <Flex className={styles.container} vertical align="center">
       <h2 className={styles.headline}>ავტორიზაცია</h2>
