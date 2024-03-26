@@ -9,11 +9,11 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   async (request) => {
-    const token = await localStorage.getItem("token");
+    const user = await JSON.parse(localStorage.getItem("user") || "{}");
 
-    if (token) {
+    if (user) {
       if (request.headers) {
-        request.headers.Authorization = `Bearer ${token}`;
+        request.headers.Authorization = `Bearer ${user.token}`;
       }
     }
     return request;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Flex, Input, Typography, Checkbox, Button } from "antd";
-import { auth } from "../../services/loginUser";
+import { auth } from "../../services/auth";
 import { loginType } from "../../types/user";
 
 import styles from "./AuthorisationComp.module.scss";

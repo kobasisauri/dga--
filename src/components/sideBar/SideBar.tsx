@@ -8,7 +8,10 @@ const SideBar = () => {
   const [active, setActive] = useState(2);
 
   return (
-    <div className=" flex flex-col bg-[#F6F4F3] w-[60px]  pt-[18px] pb-[18px] pr[18px] box-border rounded-[10px] h-full hover:w-[280px] overflow-hidden duration-200	">
+    <div
+      className="z-10 flex flex-col bg-[#fff] w-[60px]  pt-[18px] pb-[18px] pr[18px]  rounded-[10px]  hover:w-[280px] overflow-hidden duration-200 absolute hover:shadow-2xl	"
+      style={{ height: "calc(100% - 1.5rem)" }}
+    >
       <div className=" flex items-center gap-[12px]	ml-[18px] ">
         <img src={SidebarLogo} alt="logo" className=" ml-[-10px]" />
         <p className=" text-[8px] w-[195px] font-medium leading-[10.8px] text-nowrap	 ">
