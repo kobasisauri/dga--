@@ -32,6 +32,17 @@ const Table: React.FC<TableProps> = ({ tableData }) => {
     setOpenMenuIndex(openMenuIndex === index ? null : index);
   };
 
+  const handleFilterChange = (inputValue: string) => {
+    setData(
+      tableData.filter(
+        (item) =>
+          // Filter items based on username or lastName containing the inputValue
+          item.username.includes(inputValue) ||
+          item.lastName.includes(inputValue)
+      )
+    );
+  };
+
   useEffect(() => {
     setData(tableData);
   }, [tableData]);
@@ -42,7 +53,10 @@ const Table: React.FC<TableProps> = ({ tableData }) => {
         <div className="flex justify-between  ">
           <div className="flex gap-4">
             <CustomButton text="დამატება" onClick={() => setAddUser(true)} />
-            <Filter placeholder="სახელი გვარი" />
+            <Filter
+              placeholder="სახელი გვარი"
+              onChange={(e) => handleFilterChange(e.target.value)}
+            />
           </div>
           <Select
             style={{ backgroundColor: "#F6F4F3", borderRadius: "8px" }}

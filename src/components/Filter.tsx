@@ -4,7 +4,7 @@ import filter from "../assets/svgs/filter.svg";
 
 type filterProprs = {
   placeholder: string;
-  onChange?: () => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const Filter: React.FC<filterProprs> = ({ placeholder, onChange }) => {
