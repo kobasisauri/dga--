@@ -49,4 +49,5 @@ export type addUserType = {
   firstName: string;
   lastName: string;
   email: string;
+  id: number;
 };

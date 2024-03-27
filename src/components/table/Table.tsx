@@ -24,7 +24,12 @@ const header = [
 const Table: React.FC<TableProps> = ({ tableData }) => {
   const [addUser, setAddUser] = useState(false);
   const [data, setData] = useState<generalUserType[]>([]);
-  const [edit, setEdit] = useState<generalUserType>();
+  const [edit, setEdit] = useState<{
+    firstName: string;
+    lastName: string;
+    email: string;
+    id: number;
+  }>();
 
   const [openMenuIndex, setOpenMenuIndex] = useState<number | null>(null);
 
@@ -148,7 +153,12 @@ const Table: React.FC<TableProps> = ({ tableData }) => {
                           type="primary"
                           className=" bg-amber-400"
                           onClick={() => {
-                            setEdit(item);
+                            setEdit({
+                              firstName: item.firstName,
+                              lastName: item.lastName,
+                              email: item.email,
+                              id: item.id,
+                            });
                             setOpenMenuIndex(null);
                             setAddUser(true);
                           }}
@@ -164,7 +174,11 @@ const Table: React.FC<TableProps> = ({ tableData }) => {
         </div>
       </div>
       {!!addUser && (
-        <AddUser onClose={() => setAddUser(false)} editData={edit} />
+        <AddUser
+          onClose={() => setAddUser(false)}
+          editData={edit}
+          setEditData={setEdit}
+        />
       )}
     </>
   );

@@ -8,34 +8,47 @@ import { addUsers, editUsers } from "../../services/users";
 type addUserProps = {
   onClose: () => void | null;
   editData?: { firstName: string; lastName: string; email: string; id: number };
+  setEditData?: (arg: addUserType) => void;
 };
 
-const AddUser: React.FC<addUserProps> = ({ onClose, editData }) => {
-  const [addUser, setAddUser] = useState<addUserType>({
-    firstName: "",
-    lastName: "",
-    email: "",
-  });
+const initialState = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  id: 0,
+};
+
+const AddUser: React.FC<addUserProps> = ({
+  onClose,
+  editData,
+  setEditData,
+}) => {
+  const [addUser, setAddUser] = useState<addUserType>(initialState);
   const submit = () => {
     if (editData) {
       editUsers(editData.id, addUser).then((res) => {
-        console.log(res);
+        setAddUser(initialState);
         onClose();
+        console.log(res);
       });
     } else {
       addUsers(addUser).then((res) => {
-        onClose(), console.log(res);
+        setAddUser(initialState);
+        onClose();
+        console.log(res);
       });
     }
   };
 
   useEffect(() => {
-    console.log(editData);
+    setAddUser(initialState);
+
     if (editData) {
       setAddUser({
         firstName: editData?.firstName,
         lastName: editData?.lastName,
         email: editData?.email,
+        id: 0,
       });
     }
   }, [editData]);
@@ -48,7 +61,14 @@ const AddUser: React.FC<addUserProps> = ({ onClose, editData }) => {
         <h3 className="text-[#334870] text-center font-bold text-sm flex-1 ">
           მომხმარებლის დამატება
         </h3>
-        <div className="flex justify-end" onClick={() => onClose()}>
+        <div
+          className="flex justify-end"
+          onClick={() => {
+            setAddUser(initialState);
+            !!setEditData && setEditData(initialState);
+            onClose();
+          }}
+        >
           <img className=" self-end" src={close} alt="close button" />
         </div>
       </div>
